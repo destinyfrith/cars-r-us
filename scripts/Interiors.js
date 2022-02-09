@@ -1,11 +1,11 @@
-import { getInterior } from "./database.js";
+import { getInterior, setInterior } from "./database.js";
 
 const interiors = getInterior()
 
 document.addEventListener(
     "change",
     (event) => {
-        if (changeEvent.target.id === "interior") {
+        if (event.target.id === "interior") {
             setInterior(parseInt(event.target.value))
         }
     }
@@ -13,8 +13,9 @@ document.addEventListener(
 
 export const CarInterior = () => {
 
-    let html = `
-    <select id="interior">
+    let html = 
+
+        `<select id="interior">
         <option value="0">Choose your interior here</option>
         `
 

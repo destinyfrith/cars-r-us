@@ -5,7 +5,7 @@ const technologies = getTechnology()
 document.addEventListener(
     "change",
     (event) => {
-        if (changeEvent.target.id === "technology") {
+        if (event.target.id === "technology") {
             setTechnology(parseInt(event.target.value))
         }
     }
@@ -13,10 +13,10 @@ document.addEventListener(
 
 export const CarTechnology = () => {
 
-    let html = `
-    <select id="technology">
-        <option value="0">Choose your tech here</option>
-        `
+    let html =
+
+        `<select id="technology">
+        <option value="0">Choose your tech here</option>`
 
     // Use .map() for converting objects to <li> elements
     const listItemsArray = technologies.map(

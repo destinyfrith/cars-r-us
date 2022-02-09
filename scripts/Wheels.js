@@ -1,11 +1,11 @@
-import { getWheels } from "./database.js"
+import { getWheels, setWheel } from "./database.js"
 
 const wheels = getWheels()
 
 document.addEventListener(
     "change",
     (event) => {
-        if (changeEvent.target.id === "wheel") {
+        if (event.target.id === "wheel") {
             setWheel(parseInt(event.target.value))
         }
     }

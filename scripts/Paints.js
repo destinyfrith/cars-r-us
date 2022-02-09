@@ -1,11 +1,11 @@
-import { getPaintColor } from "./database.js"
+import { getPaintColor, setColor } from "./database.js"
 
 const colors = getPaintColor()
 
 document.addEventListener(
     "change",
     (event) => {
-        if (changeEvent.target.id === "color") {
+        if (event.target.id === "color") {
             setColor(parseInt(event.target.value))
         }
     }
@@ -13,8 +13,9 @@ document.addEventListener(
 
 export const CarColors = () => {
 
-    let html = `
-    <select id="color">
+    let html =
+
+        `<select id="color">
         <option value="0">Choose your color here</option>
         `
 
