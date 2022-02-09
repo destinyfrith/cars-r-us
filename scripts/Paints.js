@@ -1,23 +1,35 @@
-import { Paints } from "./database"
+import { getPaintColor } from "./database.js"
 
-
-// drop down menu using the html element <select>
-
-<select id="resource">
-    <option value="0">Prompt to select resource...</option>
-    <option value="1">First option</option>
-    <option value="2">Second option</option>
-</select>
-
-// To get the option that the user selected, 
-// you would access the .value property of the <select> element, not the individual options.
+const colors = getPaintColor()
 
 document.addEventListener(
     "change",
-    (changeEvent) => {
-        if (changeEvent.target.id === "resource") {
-            const chosenOption = changeEvent.target.value
-            console.log(chosenOption)  // "1" or "2"
+    (event) => {
+        if (changeEvent.target.id === "color") {
+            setColor(parseInt(event.target.value))
         }
     }
 )
+
+export const CarColors = () => {
+
+    let html = `
+    <select id="color">
+        <option value="0">Choose your color here</option>
+        `
+
+    // Use .map() for converting objects to <li> elements
+    const listItemsArray = colors.map(
+        (color) => {
+            return `
+        <option value="${color.id}"> ${color.color}</option>
+        `
+        }
+    )
+
+    // Join all of the strings in the array into a single string
+    html += listItemsArray.join("")
+    html += `</select>`
+    return html
+
+}

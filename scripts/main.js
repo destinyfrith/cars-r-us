@@ -1,5 +1,5 @@
 // invoke the function that will display the HTML
-import { CarsRUs } from "./CarsRUs";
+import { CarsRUs } from "./CarsRUs.js";
 
 const mainContainer = document.querySelector("#container")
 
@@ -8,3 +8,8 @@ const renderAllHTML = () => {
 }
 
 renderAllHTML()
+
+document.addEventListener("stateChanged", event => {
+    console.log("State of data has changed. Regenerating HTML...")
+    renderAllHTML()
+})

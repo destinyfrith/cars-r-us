@@ -35,6 +35,9 @@ const database = {
             wheelsId: 2
         }
     ],
+
+    orderBuilder: {
+    },
 }
 
 // write & export get/getter functions for each collection of customizations for other modules to use
@@ -53,3 +56,22 @@ export const getTechnology = () => {
 export const getWheels = () => {
     return database.wheels.map(wheel => ({ ...wheel }))
 }
+
+// this is exporting the function setMetal so we can use it elsewhere
+export const setColor = (id) => {
+    database.orderBuilder.colorId = id
+}
+
+export const setInterior = (id) => {
+    database.orderBuilder.interiorId = id
+}
+// putting a property on the order builder object
+export const setTechnology = (id) => {
+    database.orderBuilder.technologyId = id
+}
+
+export const setWheel = (id) => {
+    database.orderBuilder.wheelId = id
+}
+
+
