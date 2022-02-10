@@ -26,7 +26,7 @@ const database = {
         { id: 3, size: 18, color: "Silver", type: "Spoke", price: 320 },
         { id: 4, size: 18, color: "Black", type: "Spoke", price: 405 }
     ],
-    customerOrders: [
+    customOrders: [
         {
             id: 1,
             paintColorId: 4,
@@ -58,6 +58,11 @@ export const getWheels = () => {
     return database.wheels.map(wheel => ({ ...wheel }))
 }
 
+// export custom orders data
+export const getOrders = () => {
+    return database.customOrders.map(order => ({ ...order }))
+}
+
 // this is exporting the function setMetal so we can use it elsewhere
 export const setColor = (id) => {
     database.orderBuilder.colorId = id
@@ -74,14 +79,15 @@ export const setTechnology = (id) => {
 export const setWheel = (id) => {
     database.orderBuilder.wheelId = id
 }
-
+// This function's sole reponsiblity will be to take the temporary choices 
+// currently being stored in the orderBuilder state object and make them permanent
 export const addCustomOrder = () => {
     // Copy the current state of user choices
     const newOrder = { ...database.orderBuilder }
 
     // Add a new primary key to the object
-    const lastIndex = database.customerOrders.length - 1
-    newOrder.id = database.customerOrders[lastIndex].id + 1
+    const lastIndex = database.customOrders.length - 1
+    newOrder.id = database.customOrders[lastIndex].id + 1
 
     // Add a timestamp to the order
     newOrder.timestamp = Date.now()
