@@ -2,6 +2,7 @@ import { getInterior, setInterior } from "./database.js";
 
 const interiors = getInterior()
 
+// click event for anytime someone selects a new interior choice
 document.addEventListener(
     "change",
     (event) => {
@@ -11,6 +12,7 @@ document.addEventListener(
     }
 )
 
+// function needed in every module that you invoke in CarsRUs module to display selection lists
 export const CarInterior = () => {
 
     let html = 

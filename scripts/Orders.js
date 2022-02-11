@@ -4,6 +4,7 @@ import { getPaintColor } from "./database.js";
 import { getTechnology } from "./database.js";
 import { getWheels } from "./database.js";
 
+// this function builds the order, adds up prices and displays a new string containting the total cost
 const buildOrderListItem = (order) => {
     const interiors = getInterior()
     const paints = getPaintColor()
@@ -11,9 +12,10 @@ const buildOrderListItem = (order) => {
     const wheels = getWheels()
 
     // Remember that the function you pass to find() must return true/false
+    // Setting the chosen paint to display in custom order, Id must match those in customorder
     const foundPaint = paints.find(
         (paint) => {
-            return paint.id === order.paintId
+            return paint.id === order.colorId
         }
     )
 
@@ -49,6 +51,7 @@ const buildOrderListItem = (order) => {
     </li>`
 }
 
+// purpose of this function is to store all orders placed in the dom
 export const Orders = () => {
     /*
         Can you explain why the state variable has to be inside

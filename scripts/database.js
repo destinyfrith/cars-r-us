@@ -29,14 +29,15 @@ const database = {
     customOrders: [
         {
             id: 1,
-            paintColorId: 4,
+            colorId: 4,
             interiorId: 1,
             technologyId: 4,
-            wheelsId: 2,
+            wheelId: 2,
             timestamp: 1614659931693
         }
     ],
 
+    // Our new orderBuilder state object will store which one of those options was chosen.
     orderBuilder: {
     },
 }
